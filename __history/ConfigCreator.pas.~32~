@@ -1,0 +1,282 @@
+unit ConfigCreator;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.FileCtrl;
+
+type
+  TForm1 = class(TForm)
+    btn_create_few_files: TButton;
+    Memo1: TMemo;
+    btn_Alot: TButton;
+    btn_main_server_config: TButton;
+    btn_sim_priotiy_ab: TButton;
+    btn_firm_devtron: TButton;
+    btn_firm_truhann: TButton;
+    btn_second_server_config: TButton;
+    btn_sim_priority_ba: TButton;
+    btn_sim_priority_a: TButton;
+    btn_sim_priority_b: TButton;
+    procedure btn_create_few_filesClick(Sender: TObject);
+    procedure CreateFile(Amount: integer; thetexttoadd, directory: string);
+    procedure CreateMoreFiles(Amount: integer; thetexttoadd, directory: string);
+    procedure btn_AlotClick(Sender: TObject);
+    procedure btn_firm_devtronClick(Sender: TObject);
+    procedure btn_firm_truhannClick(Sender: TObject);
+    procedure btn_main_server_configClick(Sender: TObject);
+    procedure btn_second_server_configClick(Sender: TObject);
+    procedure btn_sim_priotiy_abClick(Sender: TObject);
+    procedure btn_sim_priority_baClick(Sender: TObject);
+    procedure btn_sim_priority_aClick(Sender: TObject);
+    procedure btn_sim_priority_bClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm1.btn_firm_devtronClick(Sender: TObject);
+var
+  firmVer: string;
+begin
+  firmVer := '00020014';
+  if not inputquery('Firmware Version', 'Please type the version number',
+    firmVer) then
+  begin
+    ShowMessage('User cancelled the dialog');
+  end
+  else
+  begin
+    Memo1.Lines.Clear;
+    Memo1.Lines.Add('application.upgrade.version=' + firmVer + slinebreak +
+      'application.upgrade.url=http://156.38.149.119/')
+  end;
+
+end;
+
+procedure TForm1.btn_firm_truhannClick(Sender: TObject);
+var
+  firmVer: string;
+begin
+  firmVer := '00020014';
+  if not inputquery('Firmware Version', 'Please type the version number',
+    firmVer) then
+  begin
+    ShowMessage('User cancelled the dialog');
+  end
+  else
+  begin
+    Memo1.Lines.Clear;
+    Memo1.Lines.Add('application.upgrade.version=' + firmVer + slinebreak +
+      'application.upgrade.url=http://www.lattech.co.za/')
+  end;
+
+end;
+
+procedure TForm1.btn_main_server_configClick(Sender: TObject);
+begin
+  Memo1.Lines.Clear;
+  Memo1.Lines.Add('connection.0.address=156.38.149.119' + slinebreak +
+    'connection.1.address=129.232.228.4' + slinebreak +
+    'connection.2.address=156.38.149.119' + slinebreak +
+    'connection.3.address=129.232.228.4' + slinebreak +
+    'devtron.0.address=156.38.149.119' + slinebreak +
+    'devtron.1.address=129.232.228.4')
+end;
+
+procedure TForm1.btn_second_server_configClick(Sender: TObject);
+begin
+  Memo1.Lines.Clear;
+  Memo1.Lines.Add('connection.0.address=129.232.228.4' + slinebreak +
+    'connection.1.address=156.38.149.119' + slinebreak +
+    'connection.2.address=129.232.228.4' + slinebreak +
+    'connection.3.address=156.38.149.119' + slinebreak +
+    'devtron.0.address=129.232.228.4' + slinebreak +
+    'devtron.1.address=156.38.149.119')
+end;
+
+procedure TForm1.btn_sim_priority_aClick(Sender: TObject);
+begin
+  Memo1.Lines.Clear;
+  Memo1.Lines.Add('sim.prioritylist=0');
+end;
+
+procedure TForm1.btn_sim_priority_baClick(Sender: TObject);
+begin
+  Memo1.Lines.Clear;
+  Memo1.Lines.Add('sim.prioritylist=1,0');
+end;
+
+procedure TForm1.btn_sim_priority_bClick(Sender: TObject);
+begin
+  Memo1.Lines.Clear;
+  Memo1.Lines.Add('sim.prioritylist=1');
+end;
+
+procedure TForm1.btn_sim_priotiy_abClick(Sender: TObject);
+begin
+  Memo1.Lines.Clear;
+  Memo1.Lines.Add('sim.prioritylist=0,1');
+end;
+
+procedure TForm1.btn_create_few_filesClick(Sender: TObject);
+var
+  count: string;
+  textString: string;
+  chosenDirectory: string;
+begin
+  if inputquery('Amount of Files', 'Please type the amount', count) then
+  begin
+    textString := Memo1.Text;
+    if SelectDirectory('Select a directory', 'C:\', chosenDirectory) then
+    begin
+      ShowMessage('Chosen directory = ' + chosenDirectory);
+    end
+    else if not SelectDirectory('Select a directory', 'C:\', chosenDirectory)
+    then
+    begin
+      ShowMessage('Directory selection aborted');
+      CreateFile(strtoint(count), textString, chosenDirectory);
+    end;
+  end
+  else if not inputquery('Amount of Files', 'Please type the amount', count)
+  then
+  begin
+    ShowMessage('User cancelled the dialog');
+  end;
+
+end;
+
+procedure TForm1.btn_AlotClick(Sender: TObject);
+var
+  count: string;
+  textString: string;
+  chosenDirectory: string;
+begin
+  if not inputquery('Amount of Files', 'Please type the amount', count) then
+  begin
+    ShowMessage('User cancelled the dialog');
+  end
+  else if inputquery('Amount of Files', 'Please type the amount', count) then
+  begin
+    textString := Memo1.Text;
+    if SelectDirectory('Select a directory', 'C:\', chosenDirectory) then
+    begin
+      ShowMessage('Chosen directory = ' + chosenDirectory);
+    end
+    else if not SelectDirectory('Select a directory', 'C:\', chosenDirectory)
+    then
+    begin
+      ShowMessage('Directory selection aborted');
+      CreateMoreFiles(strtoint(count), textString, chosenDirectory);
+    end;
+  end;
+  { count := strtoint(inputbox('Amount of Files', 'Please type the amount', ''));
+    textString := Memo1.Text;
+
+    if SelectDirectory('Select a directory', 'C:\', chosenDirectory) then
+    begin
+    ShowMessage('Chosen directory = ' + chosenDirectory);
+    end
+    else
+    ShowMessage('Directory selection aborted');
+
+    CreateMoreFiles(count, textString, chosenDirectory); }
+end;
+
+procedure TForm1.CreateFile(Amount: integer; thetexttoadd, directory: string);
+var
+  I: integer;
+  newFile: TextFile;
+  fileName: string;
+begin
+  for I := 1 to Amount do
+  begin
+    fileName := inputbox('Name of Files',
+      'Please type the last 2 or 3 numbers', '');
+    if length(fileName) = 1 then
+    begin
+      System.AssignFile(newFile, directory + '\1000000' + fileName + '.config');
+      System.Rewrite(newFile);
+      WriteLn(newFile, thetexttoadd);
+      System.CloseFile(newFile);
+    end
+    else if length(fileName) = 2 then
+    begin
+      System.AssignFile(newFile, directory + '\100000' + fileName + '.config');
+      System.Rewrite(newFile);
+      WriteLn(newFile, thetexttoadd);
+      System.CloseFile(newFile);
+    end
+    else if length(fileName) = 3 then
+    begin
+      System.AssignFile(newFile, directory + '\10000' + fileName + '.config');
+      System.Rewrite(newFile);
+      WriteLn(newFile, thetexttoadd);
+      System.CloseFile(newFile);
+    end
+    else if length(fileName) = 4 then
+    begin
+      System.AssignFile(newFile, directory + '\1000' + fileName + '.config');
+      System.Rewrite(newFile);
+      WriteLn(newFile, thetexttoadd);
+      System.CloseFile(newFile);
+    end;
+
+  end;
+
+end;
+
+procedure TForm1.CreateMoreFiles(Amount: integer;
+  thetexttoadd, directory: string);
+var
+  I: integer;
+  newFile: TextFile;
+  fileName: string;
+begin
+  for I := 1 to Amount do
+  begin
+    fileName := inttostr(I);
+    if length(fileName) = 1 then
+    begin
+      System.AssignFile(newFile, directory + '\1000000' + fileName + '.config');
+      System.Rewrite(newFile);
+      WriteLn(newFile, thetexttoadd);
+      System.CloseFile(newFile);
+    end
+    else if length(fileName) = 2 then
+    begin
+      System.AssignFile(newFile, directory + '\100000' + fileName + '.config');
+      System.Rewrite(newFile);
+      WriteLn(newFile, thetexttoadd);
+      System.CloseFile(newFile);
+    end
+    else if length(fileName) = 3 then
+    begin
+      System.AssignFile(newFile, directory + '\10000' + fileName + '.config');
+      System.Rewrite(newFile);
+      WriteLn(newFile, thetexttoadd);
+      System.CloseFile(newFile);
+
+    end
+    else if length(fileName) = 4 then
+    begin
+      System.AssignFile(newFile, directory + '\1000' + fileName + '.config');
+      System.Rewrite(newFile);
+      WriteLn(newFile, thetexttoadd);
+      System.CloseFile(newFile);
+    end;
+  end;
+end;
+
+end.

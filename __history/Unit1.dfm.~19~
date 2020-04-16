@@ -1,0 +1,120 @@
+object Form1: TForm1
+  Left = 0
+  Top = 0
+  Caption = 'Form1'
+  ClientHeight = 594
+  ClientWidth = 635
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Button1: TButton
+    Left = 496
+    Top = 366
+    Width = 131
+    Height = 25
+    Caption = 'Make a few Files'
+    TabOrder = 0
+    OnClick = Button1Click
+  end
+  object Memo1: TMemo
+    Left = 8
+    Top = 96
+    Width = 619
+    Height = 233
+    TabOrder = 1
+  end
+  object btn_Alot: TButton
+    Left = 496
+    Top = 335
+    Width = 131
+    Height = 25
+    Caption = 'Make a LOT OF FILES'
+    TabOrder = 2
+    OnClick = btn_AlotClick
+  end
+  object btn_main_server_config: TButton
+    Left = 224
+    Top = 8
+    Width = 187
+    Height = 25
+    Caption = 'Main Server Config'
+    TabOrder = 3
+    OnClick = btn_main_server_configClick
+  end
+  object btn_sim_priotiy_ab: TButton
+    Left = 432
+    Top = 8
+    Width = 89
+    Height = 25
+    Caption = 'Sim Priority - A B'
+    TabOrder = 4
+    OnClick = btn_sim_priotiy_abClick
+  end
+  object btn_firm_devtron: TButton
+    Left = 8
+    Top = 8
+    Width = 187
+    Height = 25
+    Caption = 'Firmware Upgrade Devtron Server'
+    TabOrder = 5
+    OnClick = btn_firm_devtronClick
+  end
+  object btn_firm_truhann: TButton
+    Left = 8
+    Top = 48
+    Width = 187
+    Height = 25
+    Caption = 'Firmware Upgrade Truhann Server'
+    TabOrder = 6
+    OnClick = btn_firm_truhannClick
+  end
+  object btn_second_server_config: TButton
+    Left = 224
+    Top = 48
+    Width = 187
+    Height = 25
+    Caption = 'Second Server Config'
+    TabOrder = 7
+    OnClick = btn_second_server_configClick
+  end
+  object btn_sim_priority_ba: TButton
+    Left = 432
+    Top = 48
+    Width = 89
+    Height = 25
+    Caption = 'Sim Priority - B A'
+    TabOrder = 8
+    OnClick = btn_sim_priority_baClick
+  end
+  object btn_sim_priority_a: TButton
+    Left = 538
+    Top = 8
+    Width = 89
+    Height = 25
+    Caption = 'Sim Priority - A'
+    TabOrder = 9
+    OnClick = btn_sim_priority_aClick
+  end
+  object btn_sim_priority_b: TButton
+    Left = 538
+    Top = 48
+    Width = 89
+    Height = 25
+    Caption = 'Sim Priority - B'
+    TabOrder = 10
+    OnClick = btn_sim_priority_bClick
+  end
+  object DirectoryListBox1: TDirectoryListBox
+    Left = 72
+    Top = 366
+    Width = 313
+    Height = 131
+    TabOrder = 11
+  end
+end

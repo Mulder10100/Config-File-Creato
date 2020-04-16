@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2019/10/17 20:35:37.000.745,=C:\Users\user\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2019/11/13 08:51:02.000.560,=C:\Users\user\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2019/11/13 08:52:44.000.084,C:\Users\user\Documents\Embarcadero\Studio\Projects\Unit1.dfm=C:\Company\Software Projects\Delphi\Config Creator\Die Code\Unit1.dfm</Transaction>
+    <Transaction>2019/11/13 08:52:44.000.084,C:\Users\user\Documents\Embarcadero\Studio\Projects\Unit1.pas=C:\Company\Software Projects\Delphi\Config Creator\Die Code\Unit1.pas</Transaction>
+    <Transaction>2019/11/13 08:52:48.000.021,C:\Users\user\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\Company\Software Projects\Delphi\Config Creator\Die Code\Project1.dproj</Transaction>
+    <Transaction>2019/12/12 10:34:55.000.357,C:\Company\Software Projects\Delphi\Config Creator\Die Code\Unit1.pas=C:\Company\Software Projects\Delphi\Config Creator\Die Code\ConfigCreator.pas</Transaction>
+    <Transaction>2019/12/12 10:34:55.000.358,C:\Company\Software Projects\Delphi\Config Creator\Die Code\Unit1.dfm=C:\Company\Software Projects\Delphi\Config Creator\Die Code\ConfigCreator.dfm</Transaction>
+  </Transactions>
+</BorlandProject>
